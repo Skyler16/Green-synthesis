@@ -68,8 +68,8 @@
     <Compile Include="Assets\Scripts\InputManager.cs" />
     <Compile Include="Assets\Scripts\ObjectList.cs" />
     <Compile Include="Assets\Scripts\OriginalObject.cs" />
+    <Compile Include="Assets\Scripts\Scroller.cs" />
     <Compile Include="Assets\Scripts\Slot.cs" />
-    <Compile Include="Assets\Scroller.cs" />
     <Reference Include="UnityEngine">
       <HintPath>D:/Unity2019.4.0f1/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>

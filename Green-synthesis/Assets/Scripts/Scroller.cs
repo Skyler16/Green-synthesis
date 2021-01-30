@@ -7,10 +7,13 @@ using UnityEngine.EventSystems;
 public class Scroller : MonoBehaviour, IBeginDragHandler, IEndDragHandler
 {
 
-    public ScrollRect scrollerRect;
-    public float moveSpeed = 0.5f; 
+    public float moveSpeed = 5f;
+
+    private ScrollRect scrollerRect;
+    private bool isdraging;
 
     float horposition = 0;
+    float startPos = 0;
     float distance = 0;
     
     // Start is called before the first frame update
@@ -22,16 +25,22 @@ public class Scroller : MonoBehaviour, IBeginDragHandler, IEndDragHandler
     // Update is called once per frame
     void Update()
     {
-        
+        if(isdraging)
+        {
+            //scrollerRect.horizontalNormalizedPosition = Mathf.Lerp(scrollerRect.horizontalNormalizedPosition, scrollerRect.horizontalNormalizedPosition + distance, Time.deltaTime * moveSpeed) ;
+        }
+        Debug.Log(scrollerRect.horizontalNormalizedPosition);
+        //Debug.Log("distance:" + distance);
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        ((IEndDragHandler)scrollerRect).OnEndDrag(eventData);
+        distance = Input.mousePosition.y - startPos;
     }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        ((IBeginDragHandler)scrollerRect).OnBeginDrag(eventData);
+        isdraging = true;
+        startPos = Input.mousePosition.y;
     }
 }
