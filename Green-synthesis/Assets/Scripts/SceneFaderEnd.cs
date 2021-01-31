@@ -19,6 +19,7 @@ public class SceneFaderEnd : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (alpha < 1)
         {
             alpha += Time.deltaTime * speed;
@@ -32,7 +33,7 @@ public class SceneFaderEnd : MonoBehaviour
         {
             alpha += Time.deltaTime * speed;
         }
-        //Debug.Log("true");
+        Debug.Log(alpha);
 
 
     }

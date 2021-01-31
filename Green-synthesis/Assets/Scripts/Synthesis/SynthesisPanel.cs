@@ -45,9 +45,8 @@ public class SynthesisPanel : MonoBehaviour
 
     private void Update()
     {
-        if (fullSlots == slots.Length)
+        if (fullSlots == slots.Length && !Game.Get.isOver)
         {
-            Debug.Log("over");
             Game.Get.GameOver();
         }
     }

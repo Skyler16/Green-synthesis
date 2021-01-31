@@ -23,10 +23,9 @@ public class Game : MonoBehaviour
     public int lostScore = 0;
     public int getScore = 0;
     public GameObject uiScoreText;
+    public GameObject uiGameOver;
 
-    [SerializeField]
-    GameObject pauseMenu;
-    bool isPaused = false;
+    public bool isOver = false;
 
     private void Awake()
     {
@@ -39,7 +38,6 @@ public class Game : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        pauseMenu.SetActive(false);
         lostScore = 0;
         getScore = 0;
 
@@ -50,7 +48,6 @@ public class Game : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        PauseMenu();
         uiScoreText.GetComponent<Text>().text = (getScore - lostScore).ToString();
 
         if(Input.GetMouseButtonDown(0))
@@ -92,42 +89,21 @@ public class Game : MonoBehaviour
 
     public void GameOver()
     {
-        PauseGame();
-        int totalScore = getScore - lostScore;
-    }
-
-    void PauseMenu()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (!isOver)
         {
-            if(isPaused)
-            {
-                ResumeGame();
-            }
-            else
-            {
-                PauseGame();
-            }
+            isOver = true;
+            Time.timeScale = 0;
+            int totalScore = getScore - lostScore;
+            uiGameOver.SetActive(true);
+
         }
     }
 
-    public void ResumeGame()
+    public void BackToMenu()
     {
-        pauseMenu.SetActive(false);
-        Time.timeScale = 1;
-        isPaused = false;
+        SceneManager.LoadScene("LevelSelect");
+        Time.timeScale = 1f;
     }
 
-    public void PauseGame()
-    {
-        pauseMenu.SetActive(true);
-        Time.timeScale = 0;
-        isPaused = true;
-    }
 
-    public void ExitToMenu()
-    {
-        isPaused = false;
-        //SceneManager.LoadScene()
-    }
 }
