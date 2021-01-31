@@ -13,6 +13,8 @@ public class SynthesisPanel : MonoBehaviour
 
     public int panelSum = 0;
 
+    public GameObject particle;
+
     public static SynthesisPanel Get
     {
         get

@@ -85,7 +85,11 @@ public class Slot : MonoBehaviour
                 GameObject newObj = synData.GetSynthesisGameObject(containObject.nextId);
                 ClearSlot();
                 AddObject(newObj);
+
                 Game.Get.getScore += synData.scores[containObject.nextId];
+
+                Instantiate(SynthesisPanel.Get.particle, transform.position, transform.rotation);
+
             }
         }
 
