@@ -69,6 +69,7 @@
     <Compile Include="Assets\Scripts\SceneFader.cs" />
     <Compile Include="Assets\Scripts\SceneFaderEnd.cs" />
     <Compile Include="Assets\Scripts\ScenesManager.cs" />
+    <Compile Include="Assets\Scripts\ScreenSize.cs" />
     <Compile Include="Assets\Scripts\Scroller.cs" />
     <Compile Include="Assets\Scripts\Synthesis\Game.cs" />
     <Compile Include="Assets\Scripts\Synthesis\RandomIndex.cs" />

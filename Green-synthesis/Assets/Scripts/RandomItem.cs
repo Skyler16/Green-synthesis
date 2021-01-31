@@ -41,7 +41,7 @@ public class RandomItem : MonoBehaviour
         do
         {
             findTypeNum = Random.Range(0, textures.Length);
-        } while (findTypeNum > dic.Count);
+        } while (findTypeNum > dic.Count || findTypeNum == 0);
 
         for (int j = 0; j < findTypeNum; j++)
         {
