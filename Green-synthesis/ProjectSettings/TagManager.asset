@@ -3,7 +3,9 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Slot
+  - Resource
   layers:
   - Default
   - TransparentFX
@@ -40,4 +42,13 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: background
+    uniqueID: 3680506551
+    locked: 0
+  - name: platforms
+    uniqueID: 2413581601
+    locked: 0
+  - name: foreground
+    uniqueID: 2946853437
     locked: 0

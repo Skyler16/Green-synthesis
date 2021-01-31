@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class Game : MonoBehaviour
 {
+    public Texture2D cursorIcon;
+
     public static Game Get
     {
         get
@@ -38,6 +40,9 @@ public class Game : MonoBehaviour
         pauseMenu.SetActive(false);
         lostScore = 0;
         getScore = 0;
+
+        Vector2 cursorOffset = new Vector2(cursorIcon.width * 0.5f, cursorIcon.height * 0.5f);
+        Cursor.SetCursor(cursorIcon, cursorOffset, CursorMode.Auto);
     }
 
     // Update is called once per frame
