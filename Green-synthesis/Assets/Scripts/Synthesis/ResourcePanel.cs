@@ -21,6 +21,9 @@ public class ResourcePanel : MonoBehaviour
 
     SynthesisData synData;
 
+    bool isPicking;
+    public GameObject pickupObject;
+
     public static ResourcePanel Get
     {
         get
@@ -44,6 +47,7 @@ public class ResourcePanel : MonoBehaviour
     void Start()
     {
         timePass = timeInterval;
+        isPicking = false;
     }
 
     // Update is called once per frame
@@ -73,5 +77,22 @@ public class ResourcePanel : MonoBehaviour
         o.AddComponent<ResoucePanelObject>();
         o.GetComponent<ResoucePanelObject>().objId = o.GetComponent<SynthesisObject>().id;
 
+    }
+
+    public void PickupObject(GameObject o)
+    {
+        isPicking = true;
+        pickupObject = o;
+        o.GetComponent<ResoucePanelObject>().Pickup();
+    }
+
+    public void PutDownObject()
+    {
+        if(isPicking)
+        {
+            isPicking = false;
+            Destroy(pickupObject);
+            pickupObject = null;
+        }
     }
 }
