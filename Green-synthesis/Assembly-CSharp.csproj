@@ -78,6 +78,7 @@
     <Compile Include="Assets\Scripts\Synthesis\SynthesisData.cs" />
     <Compile Include="Assets\Scripts\Synthesis\SynthesisObject.cs" />
     <Compile Include="Assets\Scripts\Synthesis\SynthesisPanel.cs" />
+    <None Include="Assets\ScrollingShader.shader" />
     <Reference Include="UnityEngine">
       <HintPath>D:/Unity2019.4.0f1/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
