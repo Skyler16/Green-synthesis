@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Game : MonoBehaviour
 {
@@ -21,6 +22,7 @@ public class Game : MonoBehaviour
 
     public int lostScore = 0;
     public int getScore = 0;
+    public GameObject uiScoreText;
 
     [SerializeField]
     GameObject pauseMenu;
@@ -49,6 +51,7 @@ public class Game : MonoBehaviour
     void Update()
     {
         PauseMenu();
+        uiScoreText.GetComponent<Text>().text = (getScore - lostScore).ToString();
 
         if(Input.GetMouseButtonDown(0))
         {
