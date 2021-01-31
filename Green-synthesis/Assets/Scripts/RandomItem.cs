@@ -16,9 +16,10 @@ public class RandomItem : MonoBehaviour
     private string spriteName;
     private string[] order = new string[13];
     private string clickName;
-    private string name;
+    private string printName;
     private int value;
     private bool isClickRight = false;
+    private int findTypeNum;
 
 
 
@@ -36,8 +37,12 @@ public class RandomItem : MonoBehaviour
             else
                 dic[spriteName] ++;
         }
-       
-        int findTypeNum = Random.Range(0, dic.Count);
+
+        do
+        {
+            findTypeNum = Random.Range(0, textures.Length);
+        } while (findTypeNum > dic.Count);
+
         for (int j = 0; j < findTypeNum; j++)
         {
             int itemNum;
@@ -78,11 +83,11 @@ public class RandomItem : MonoBehaviour
         
         for (int m = 0; m < existDic.Count; m++)
         {
-            name = order[m];
-            value = existDic[name];
+            printName = order[m];
+            value = existDic[printName];
             if(value > 0)
             {
-                if (name.Equals(clickName))
+                if (printName.Equals(clickName))
                 {
                     value--;
                     if(value == 0)
@@ -91,7 +96,7 @@ public class RandomItem : MonoBehaviour
                         zeroCount++;
                     }
 
-                    existDic[name] = value;
+                    existDic[printName] = value;
                     isClickRight = true;
 
                 }
@@ -101,7 +106,7 @@ public class RandomItem : MonoBehaviour
                 zeroCount++;
             }
             
-            textures[m].text = name + "*" + value;
+            textures[m].text = printName + "*" + value;
         }
 
         //Debug.Log(zeroCount);

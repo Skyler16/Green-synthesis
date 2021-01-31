@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class SceneFader : MonoBehaviour
 {
     
-    public float speed = 0.3f;
+    public float speed = 0.5f;
 
     private float alpha = 1;
     private Image fader;

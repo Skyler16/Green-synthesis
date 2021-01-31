@@ -19,12 +19,18 @@ public class SceneFaderEnd : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (alpha <= 1)
+        if (alpha < 1)
         {
             alpha += Time.deltaTime * speed;
             endFader.color = new Color(173f / 255f, 173f / 255f, 173f / 255f, alpha);
             con.color = new Color(204f / 255f, 0 / 255f, 17f / 255f, alpha);
 
+        } else if (alpha > 2.5f)
+        {
+            ScenesManager.sManager.ChangeScene("LevelSelect");
+        } else
+        {
+            alpha += Time.deltaTime * speed;
         }
         //Debug.Log("true");
 
