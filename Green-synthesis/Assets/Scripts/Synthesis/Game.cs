@@ -60,16 +60,21 @@ public class Game : MonoBehaviour
                 {
                     if (!isHolding)
                     {
+                        Cursor.visible = false;
+
                         isHolding = true;
                         var ro = hit.transform.gameObject.GetComponent<ResoucePanelObject>();
                         objId = ro.objId;
-                        ro.Pickup();
+                        ResourcePanel.Get.PickupObject(ro.gameObject);
                     }
                 }
                 if (hit.transform.tag == "Slot")
                 {
                     if(isHolding)
                     {
+                        Cursor.visible = true;
+                        ResourcePanel.Get.PutDownObject();
+
                         Slot slot = hit.transform.gameObject.GetComponent<Slot>();
                         GameObject obj = Resources.Load<SynthesisData>("Object List").GetSynthesisGameObject(objId);
                         SynthesisPanel.Get.PlaceObject(slot, obj);

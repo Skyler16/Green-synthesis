@@ -6,9 +6,21 @@ public class ResoucePanelObject : MonoBehaviour
 {
     public int objId;
 
+    bool isPicking = false;
+
     private void Update()
     {
-        transform.localPosition += new Vector3(1, 0, 0) * Time.deltaTime * ResourcePanel.Get.moveSpeed;
+        if (!isPicking)
+        {
+            transform.localPosition += new Vector3(1, 0, 0) * Time.deltaTime * ResourcePanel.Get.moveSpeed;
+        }
+        else
+        {
+           Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition)
+                                - transform.position;
+           transform.Translate(mousePos);
+        }
+  
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -19,6 +31,6 @@ public class ResoucePanelObject : MonoBehaviour
 
     public void Pickup()
     {
-        Destroy(this.gameObject);
+        isPicking = true;
     }
 }

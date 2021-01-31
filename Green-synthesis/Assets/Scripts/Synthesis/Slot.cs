@@ -51,8 +51,8 @@ public class Slot : MonoBehaviour
 
         SynthesisPanel.Get.panelSum += (int)Mathf.Pow(2, containObject.id);
 
-        if (containObject.nextId == -1)
-            ClearSlot();
+        //if (containObject.nextId == -1)
+         //   ClearSlot();
     }
 
     public bool ContainsSameObject(Slot slot)
